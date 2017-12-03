@@ -5,7 +5,7 @@
 
 // 导入http模块:
 var http = require('http');
-var PORT = 8080
+var PORT = 80
 // 创建http server，并传入回调函数:
 var server = http.createServer(function (request, response) {
     // 回调函数接收request和response对象,
