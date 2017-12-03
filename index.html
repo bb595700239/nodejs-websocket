@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>node-socket</title>
+</head>
+<body>
+<h1>Echo test</h1>
+<input id="sendtxt" type="text"/>
+<button id="send">发送</button>
+<div id="info"></div>
+<script>
+    var websocket = new WebSocket('ws://localhost:8001')
+    websocket.onopen = function(){
+        document.getElementById('info').innerHTML =  "connected"
+    }
+    websocket.onclose = function(){
+        console.log('socket close')
+    }
+    websocket.onmessage = function(e){
+        console.log(e.data)
+        document.getElementById('info').innerHTML =  e.data
+    }
+    document.getElementById('send').onclick = function () {
+        var txt = document.getElementById('sendtxt').value
+        websocket.send(txt)
+    }
+</script>
+</body>
+</html>
