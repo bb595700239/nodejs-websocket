@@ -5,7 +5,7 @@
 
 // 导入http模块:
 var http = require('http');
-
+var PORT = 8080
 // 创建http server，并传入回调函数:
 var server = http.createServer(function (request, response) {
     // 回调函数接收request和response对象,
@@ -18,6 +18,6 @@ var server = http.createServer(function (request, response) {
 });
 
 // 让服务器监听8080端口:
-server.listen(8080);
+server.listen(PORT);
 
-console.log('Server is running at http://127.0.0.1:8080/');
+console.log('http sever litstening on port '+PORT)
