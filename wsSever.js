@@ -1,5 +1,7 @@
 var ws = require("nodejs-websocket")
 
+
+var PORT = 8001
 // Scream server example: "hi" -> "HI!!!"
 var server = ws.createServer(function (conn) {
     console.log("New connection")
@@ -14,4 +16,5 @@ var server = ws.createServer(function (conn) {
         console.log('handle err')
         console.log(err)
     })
-}).listen(8001)
+}).listen(PORT)
+console.log('websocket sever litstening on port '+PORT)
