@@ -5,12 +5,12 @@
     <title>node-socket</title>
 </head>
 <body>
-<h1>Echo test</h1>
+<h1>API测试</h1>
 <input id="sendtxt" type="text"/>
 <button id="send">发送</button>
 <div id="info"></div>
 <script>
-    var websocket = new WebSocket('ws://47.104.13.121:8001/')
+    var websocket = new WebSocket('ws://47.104.13.121/')
     websocket.onopen = function(){
         document.getElementById('info').innerHTML =  "connected"
     }
