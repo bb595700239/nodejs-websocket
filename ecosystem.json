@@ -1,31 +1,20 @@
+
+
 {
-  "apps": [
-    {
-      "name": "websocket",
-      "script": "wsSever.js",
-      "env": {
-        "COMMON_VARIABLE": "ture"
-      },
-      "env_production": {
-        "NODE_ENV": "production"
-      }
-    }
-  ],
-  "deploy": {
-    "production": {
-      "user": "root",
-      "host": [
-        "212.64.24.247"
-      ],
-      "port": "80",
-      "ref": "origin/master",
-      "repo": "https://github.com/bb595700239/nodejs-websocket.git",
-      "path": "/blog/nodejs-websocket",
+  "apps" : [{
+    "name": "websocket",
+    "script": "./wsSever.js",
+  }],
+  "deploy" : {
+    // "production" is the environment name
+    "production" : {
+      "user" : "root",
+      "host" : ["212.64.24.247"],
+      "ref"  : "origin/master",
+      "repo" : "git@github.com:bb595700239/nodejs-websocket.git",
+      "path": "/root/blog/nodejs-websocket",
       "ssh_options": "StrictHostKeyChecking=no",
-      "pre-deploy-local": "echo 'deploy Done!'",
-      "env": {
-        "NODE_ENV": "production"
-      }
+      "post-deploy" : "npm install; grunt dist"
     }
   }
 }
