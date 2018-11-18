@@ -15,7 +15,7 @@
       "repo" : "git@github.com:bb595700239/nodejs-websocket.git",
       "path": "/root/blog/nodejs-websocket",
       "ssh_options": "StrictHostKeyChecking=no",
-      "post-deploy" : "npm run wsSever"
+      "post-deploy" : "node wsSever.js"
     }
   }
 }
