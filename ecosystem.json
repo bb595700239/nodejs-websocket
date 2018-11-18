@@ -10,6 +10,7 @@
     "production" : {
       "user" : "root",
       "host" : ["212.64.24.247"],
+      "port" : "22",
       "ref"  : "origin/master",
       "repo" : "git@github.com:bb595700239/nodejs-websocket.git",
       "path": "/root/blog/nodejs-websocket",
