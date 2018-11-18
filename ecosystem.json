@@ -1,5 +1,5 @@
 {
-  "app": [
+  "apps": [
     {
       "name": "websocket",
       "script": "wsSever.js",
@@ -11,17 +11,19 @@
       }
     }
   ],
-  "deploy":{
-    "production":{
-      "user":"root",
-      "host":["212.64.24.247"],
-      "port":"80",
-      "ref":"origin/master",
-      "repo":"https://github.com/bb595700239/nodejs-websocket.git",
-      "path":"/blog/nodejs-websocket",
-      "ssh_options":"StrictHostKeyChecking=no",
-      "pre-deploy-local":"echo 'deploy Done!'",
-      "env":{
+  "deploy": {
+    "production": {
+      "user": "root",
+      "host": [
+        "212.64.24.247"
+      ],
+      "port": "80",
+      "ref": "origin/master",
+      "repo": "https://github.com/bb595700239/nodejs-websocket.git",
+      "path": "/blog/nodejs-websocket",
+      "ssh_options": "StrictHostKeyChecking=no",
+      "pre-deploy-local": "echo 'deploy Done!'",
+      "env": {
         "NODE_ENV": "production"
       }
     }
