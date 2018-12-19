@@ -1,7 +1,7 @@
 var ws = require("nodejs-websocket")
 
 
-var PORT = 80
+var PORT = 3002
 var clientCount = 0
 // Scream server example: "hi" -> "HI!!!"
 var server = ws.createServer(function (conn) {
