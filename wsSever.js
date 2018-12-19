@@ -31,7 +31,7 @@ var server = ws.createServer(function (conn) {
         console.log(err)
     })
 }).listen(PORT)
-console.log('joubn's blog websocket sever litstening on port '+PORT)
+console.log('joubn\'s blog websocket sever litstening on port '+PORT)
 
 
 function broadcast(str) {
