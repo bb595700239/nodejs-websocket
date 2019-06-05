@@ -1,21 +1,33 @@
-
-
 {
-  "apps" : [{
-    "name": "websocket",
-    "script": "./wsSever.js",
-  }],
-  "deploy" : {
-    // "production" is the environment name
-    "production" : {
-      "user" : "root",
-      "host" : ["212.64.24.247"],
-      "port" : "22",
-      "ref"  : "origin/master",
-      "repo" : "git@github.com:bb595700239/nodejs-websocket.git",
-      "path": "/root/blog/nodejs-websocket",
-      "ssh_options": "StrictHostKeyChecking=no",
-      "post-deploy" : "pm2 start wsSever.js"
+  // 数组中放的是需要发布的项目一些变量的定义
+  "apps": [
+    {
+      "name": "hello joubbn", //项目名字
+      "script": "httpSever.js", //用来启动的脚本
+      // "instances":2,
+      // 启动项目所需要的环境变量
+      "env": {
+        "COMMON_VARIABLE": "true", //设置为true 可以在启动的时传入外部的变量进去
+      },
+      "env_production": {
+        "NODE_ENV": "production"
+      }
+    }
+  ],
+  // 部署
+  "deploy": {
+    "production": {
+      "user": "root",
+      "host": "212.64.24.247", //可以是数组 部署到多台主机
+      "ref": "origin/master", //选择拿哪个个分支的代码
+      "repo": "git@github.com:bb595700239/nodejs-websocket.git", //仓库地址
+      "path": "/root/blog/nodejs-websocket", //要发布到服务器上哪个目录下面
+      "ssh_options": "StrictHostKeyChecking=no", //避免key验证导致代码更新到远程仓库失败
+      "post-deploy": "source ~/.nvm/nvm.sh && pm2 startOrRestart ecosystem.json --env production", //发布之后执行的动作 执行开启或更新pm2运行的服务
+      "pre-deploy-local": "echo 'Deploy Done!'", //本地发布之前的动作
+      "env": { //指定部署到远程的仓库的环境 是production生产环境
+        "NODE_ENV": "production"
+      }
     }
   }
 }
