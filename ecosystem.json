@@ -14,7 +14,7 @@
       }
     }
   ],
-  // 部署
+  // 部署 
   "deploy": {
     "production": {
       "user": "root",
